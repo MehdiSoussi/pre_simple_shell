@@ -8,8 +8,11 @@ char *_getenv(const char *name)
 	while(environ[i])
 	{
 		token = strtok(environ[i], "=");
-		if(!strcmp(token, name))
-			return strtok(0, "=");
+		if(strcmp(token, name) == 0)
+		{
+		token = strtok(0, "=");
+		return token;
+		}
 		i++;
 	}
 	return 0;
